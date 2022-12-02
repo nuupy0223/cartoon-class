@@ -1,0 +1,224 @@
+html,
+body {
+    margin: 0;
+    width: 100%;
+}
+
+.wrap *{
+    position: relative;
+}
+
+div,
+figure,
+dl,
+dt,
+dd,
+ul,
+li,
+ol,
+p {
+    padding: 0;
+    margin: 0;
+}
+
+ol,
+ul,
+li,
+dl,
+dt,
+dd {
+    list-style: none;
+}
+
+h1, h2, p, span {font-size: 1rem;}
+a{text-decoration: none;
+color: #000;}
+
+/* .wrap {
+    max-width: 1300px;
+    margin: 0 auto;
+} */
+
+.area{padding: 0 10px;}
+
+.section{margin-top: 56px;
+    margin-bottom: 148px;}
+
+.gnb_bar ul,
+.col {
+    display: flex;
+}
+
+.gnb_bar>.area{
+    justify-content: space-between;
+}
+
+.gnb_bar {
+    border-bottom: 1px solid #000;
+}
+
+.gnb_bar li {
+    padding: 20px 14px;
+}
+
+.tab ul {
+    display: flex;
+    justify-content: space-between;
+    float: left;
+}
+
+.tab {margin: 24px 0;}
+
+.flexedclear::after{content: '';
+    display: block;
+    clear: both;}
+
+.tab li{margin-right: 24px;
+    }
+
+.tab li:last-child{margin-right: 0;
+    }
+
+.tab a {
+    border: 1px solid #000;
+    padding: 10px 24px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tab .write{
+    float: right;
+}
+
+.tab .active a{
+    background-color: #000;
+    color: #ddd;
+}
+
+.board {
+    width: 100%;
+    border-top: 1px solid #000;
+    font-size: 0;
+}
+
+.board_list>div {
+    border-bottom: 1px solid #ddd;
+}
+
+.board_list>div:last-child, 
+.board_header {
+    border-bottom: 1px solid #000;
+}
+
+.board_header>div,
+.board_list>div>div {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    padding: 15px 0;
+    word-break: break-all;
+}
+
+.board_header div, .board_list>div div{
+    font-size: 1rem;
+}
+
+.board_header{
+    font-weight: 700;
+}
+
+.num {
+    width: 10%;
+}
+
+.board .tit {
+    width: 60%;
+    text-align: left;
+}
+
+.date {
+    width: 10%;
+}
+
+.count {
+    width: 10%;
+}
+
+.name{
+    width: 10%;
+}
+
+.paging{
+    text-align: center;
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.paging a{
+    display: inline-block;
+    box-sizing: border-box;
+    line-height: 2rem;
+    vertical-align: middle;
+    padding: 0 12px;
+}
+
+.paging .prev, .paging .next{
+    padding: 0 1rem;
+}
+
+.page_num{
+    display: flex;
+    width: 10rem;
+    justify-content: space-evenly;
+}
+
+.paging .prev::after,.paging .next::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    width: 1px;
+    background-color: #555;
+    height: 1rem;
+    transform: translateY(-50%);
+}
+
+.paging .prev::after{
+    right: 0;
+}
+
+.paging .next::before{
+    left: 0;
+}
+
+/* 반응형 */
+@media (max-width: 1000px){
+.board .num, .board .name, .board .count {
+    display: none;
+}
+
+html{
+    font-size: .9rem;
+}
+
+.tab ul{padding-bottom: 24px;}
+
+.tab li{
+    margin-right: 10px;
+}
+
+.tab a{padding: 10px;}
+
+.board .tit {
+    width: 80%;
+    padding: 0 1%;
+}
+
+.date{
+    width: 16%;
+}
+
+
+}
