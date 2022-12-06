@@ -16,7 +16,10 @@ dd,
 ul,
 li,
 ol,
-p {
+p,
+h1,
+h2,
+h6 {
     padding: 0;
     margin: 0;
 }
@@ -34,7 +37,7 @@ h1,
 h2,
 p,
 span {
-    font-size: 1rem;
+    font-size: inherit;
 }
 
 a {
@@ -80,7 +83,7 @@ a {
 }
 
 .tab {
-    margin: 24px 0;
+    padding: 24px 0;
 }
 
 .flexedclear::after {
@@ -216,14 +219,18 @@ a {
 
 /* 글쓰기 페이지 */
 .board_write {
-    border-top: 2px solid #000;
+    border-top: 1px solid #000;
 }
 
+.board_write,
+.bt_wrap {
+    padding-top: 20px;
+}
 
 .board_write .cont textarea {
     display: block;
     width: 100%;
-    height: 250px ;
+    height: 250px;
     padding: 15px;
     box-sizing: border-box;
     border: 1px solid #000;
@@ -240,87 +247,152 @@ a {
     border: 1px solid #000;
 }
 
-.board_write .title dt,
-.board_write .title dd,
-.board_write .info dt,
-.board_write .info dd,
-.board_write .cont dd,
-.board_write .cont dt {
-    display: inline-block;
-    vertical-align: middle;
+.board_write .info dt {
     font-size: 1rem;
 }
 
 .board_write .title dl,
 .board_write .info dl,
-.board_write .cont dl{
+.board_write .cont dl {
     display: flex;
     padding: 15px 0;
+    align-items: center;
+}
+
+.board_write .cont dl {
+    align-items: flex-start;
+}
+
+.board_write .info {
+    font-size: 0;
+    display: flex;
+    column-gap: 16px;
+    flex-wrap: wrap;
+    padding-top: 20px;
 }
 
 .board_write .info dl {
-    display: inline-block;
-    width: 50%;
-    vertical-align: middle;
-}
-
-.board_write .info{
-    font-size: 0;
+    flex: 1;
 }
 
 .board_write .title dt,
 .board_write .info dt,
-.board_write .cont dt{
- width: 100px;
+.board_write .cont dt {
+    width: 100px;
 }
 
+.board_write dt{
+    font-weight: 700;
+}
 
 .board_write .title dd,
 .board_write .cont dd,
-.board_write .info dd{
- width: calc(100% - 100px);
+.board_write .info dd {
+    width: calc(100% - 100px);
 }
 
-.board_write .cont span{
-    float: right;
+.board_write .cont span {
+    width: 100%;
+    display: block;
+    text-align: right;
+    font-size: .9rem;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #ccc;
 }
 
-.board_write .cont::after{
+.board_write .cont::after {
     content: "";
     display: block;
-    clear: both;    
+    clear: both;
 }
 
-.bt_wrap{
+.bt_wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.bt_wrap .left_wrap{
+.bt_wrap .left_wrap {
     display: flex;
 }
 
-.bt_wrap .btn{
+.bt_wrap .btn {
     margin-left: 12px;
 }
 
-.bt_wrap .right{
+.bt_wrap .right {
     text-decoration: underline;
 }
 
 .bt_wrap .btn a{
     width: 100px;
+    padding: 16px 0;
+}
+
+.btn a {
     border: 1px solid #000;
-    padding: 24px 0;
     display: block;
     box-sizing: border-box;
     text-align: center;
 }
 
-.bt_wrap .btn:last-child a{
+.bt_wrap .btn:last-child a {
     background: #000;
     color: white;
+}
+
+/* 글보기 페이지 */
+
+.board_view .info,
+.board_view dl,
+.board_view dt {
+    display: flex;
+    align-items: center;
+}
+
+.board_view .info dl {
+    margin-right: 10px;
+}
+
+.board_view .info {
+    font-size: .8rem;
+    color: #666;
+    flex-wrap: wrap;
+}
+
+.board_view .info dt::after {
+    content: "|";
+    font-size: .25rem;
+    text-align: center;
+    margin: 3px;
+}
+
+.board_view{
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.board_view .title{
+    border-bottom: 1px solid #ccc;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.board_view .cont{
+    padding: 24px 0;
+}
+
+.view_bt_wrap .left_wrap{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.view_bt_wrap a{
+    padding: 12px 14px;
+}
+
+.cmt_wrap .tab{
+    border-bottom: 1px solid #000;
 }
 
 /* 반응형 */
@@ -357,5 +429,60 @@ a {
         width: 16%;
     }
 
+    /*글쓰기*/
+
+    .board_write .info dl {
+        flex: 100%;
+    }
+    
+    /*글보기*/
+    .board_view .count{
+        display: none;
+    }
+
+
+}
+
+/* 웹 크기일 때*/
+@media (min-width: 1024px) {
+    .board_view, .board_view .title {
+        display: grid;
+        grid-template-columns: 5fr minmax(0, 66fr) 5fr;
+        align-items: baseline;
+    }
+
+    .board_view .title{
+        grid-template-areas:
+        'count tit tit'
+        ' .  info info ';
+    }
+
+    .board_view{
+        grid-template-areas:
+        'title title title'
+        ' .  cont . ';
+    }
+
+    .board_view .title{
+        grid-area: title;
+    }
+
+    .board_view .count{
+        grid-area: count;
+        place-self: center;
+        width: fit-content
+    }
+
+    .board_view .info{
+        grid-area: info;
+    }
+
+    .board_view .tit{
+        grid-area: tit;
+    }
+    
+    .board_view .cont{
+        grid-area: cont;
+    }
 
 }
