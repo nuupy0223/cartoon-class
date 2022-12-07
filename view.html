@@ -7,15 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript">
-
-        const textarea = useRef();
-        
-        const handleResizeHeight = () => {
-        textarea.current.style.height = 'auto'
-        textarea.current.style.hegith = textarea.current.scrollHeight + 'px';
-        }    
-        </script>
 </head>
 
 <body>
@@ -73,7 +64,36 @@
             <div class="view_bt_wrap">
                 <div class="left_wrap">
                     <div class="btn"><a href="#">수정</a></div>
-                    <div class="btn"><a href="#">삭제</a></div>
+                    <div class="btn"><button class="open">삭제</button>
+                        <div class="modal hidden">
+                            <!--삭제 모달-->
+                            <div class="modal_overlay"></div>
+                            <div class="modal_content">
+                                <div class="md_tit">
+                                    <strong>안내</strong>
+                                    <button class="close">
+                                        <span>닫기</span>
+                                        <svg width="2rem" height="2rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 5h2v2H5V5zm4 4H7V7h2v2zm2 2H9V9h2v2zm2 0h-2v2H9v2H7v2H5v2h2v-2h2v-2h2v-2h2v2h2v2h2v2h2v-2h-2v-2h-2v-2h-2v-2zm2-2v2h-2V9h2zm2-2v2h-2V7h2zm0 0V5h2v2h-2z" fill="currentColor"/>
+                                        </svg></button>
+                                </div>
+                                <span class="md_cont">정말 삭제하시겠습니까?<br />
+                                삭제하시려면 비밀번호를 입력해주세요.
+                                </span>
+                                <div class="md_input">
+                                    <div class="name">
+                                        <div>작성자</div>
+                                        <div><input type="text" name="" id=""></div>
+                                    </div>
+                                    <div class="password">
+                                        <div>비밀번호</div>
+                                        <div><input type="password" name="" id=""></div>
+                                    </div>
+                                </div>
+                                <button class="confirm">확인</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="cmt_wrap">
@@ -81,16 +101,17 @@
                 <div class="cmt_list">
                     <div>
                         <span class="name">테리맘</span>
-                        <span><a href="#">삭제</a></span>
+                        <span class="del open"><button>삭제</button>
+                        </span>
                         <div class="cont">
-                            부천시청이 주관하는 걸로 알고 있어요. 한국만화영화진흥원에 연락해보세요.
+                            부천시청에서 주관하는걸로 알고 있어요. 한국만화영화진흥원에 연락해보시면 답변 받으실 수 있을 것 같은데요?
                         </div>
                     </div>
                     <div>
-                        <span class="name">테리맘</span>
-                        <span><a href="#">삭제</a></span>
+                        <span class="name">김똥개</span>
+                        <span class="del open"><button>삭제</button></span>
                         <div class="cont">
-                            부천시청이 주관하는 걸로 알고 있어요. 한국만화영화진흥원에 연락해보세요.
+                            한국만화영화진흥원에 연락해보세요.
                         </div>
                     </div>
 
@@ -98,12 +119,14 @@
                 <div class="cmt_write">
                     <div class="group">
                         <div class="item_tit cont">댓글</div>
-                        <div class="item_cont"><textarea name="content" placeholder="300자까지 입력 가능" maxlength='300' rows="1"></textarea></div>
+                        <div class="item_cont"><textarea name="content" placeholder="300자까지 입력 가능" maxlength='300'
+                                rows="1"></textarea></div>
                     </div>
                     <div class="info_g">
                         <div class="group">
                             <div class="item_tit name">작성자</div>
-                            <div class="item_cont"><input type="text" placeholder="8자까지 입력 가능" name="" id="" maxlength="8"></div>
+                            <div class="item_cont"><input type="text" placeholder="8자까지 입력 가능" name="" id=""
+                                    maxlength="8"></div>
                         </div>
                         <div class="group">
                             <div class="item_tit psword">비밀번호</div>
@@ -142,6 +165,29 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const openButton = document.querySelector(".open");
+        const modal = document.querySelector(".modal");
+        const closeBtn = modal.querySelector("button");
+        const openModal = () => {
+            modal.classList.remove("hidden");
+        }
+        const closeModal = () => {
+            modal.classList.add("hidden");
+        }
+        closeBtn.addEventListener("click", closeModal);
+        openButton.addEventListener("click", openModal);
+    </script>
+    <!--react용 텍스트에리어 자동 높이 설정 
+    <script type="text/javascript">
+            const textarea = useRef();
+            const handleResizeHeight = () => {
+            textarea.current.style.height = 'auto'
+            textarea.current.style.hegith = textarea.current.scrollHeight + 'px';
+            }    
+    </script> -->
+
 </body>
 
 </html>
