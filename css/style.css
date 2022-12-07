@@ -10,7 +10,7 @@ body {
 
 div,
 figure,
-dl,
+.group,
 dt,
 dd,
 ul,
@@ -27,7 +27,7 @@ h6 {
 ol,
 ul,
 li,
-dl,
+.group,
 dt,
 dd {
     list-style: none;
@@ -43,6 +43,11 @@ span {
 a {
     text-decoration: none;
     color: #000;
+}
+
+.area{
+    max-width: 1280px;
+    margin: 0 auto;
 }
 
 /* .wrap {
@@ -69,7 +74,7 @@ a {
 }
 
 .gnb_bar {
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #555;
 }
 
 .gnb_bar li {
@@ -239,7 +244,8 @@ a {
 
 .board_write .title input,
 .board_write .info input,
-.board_write .cont input {
+.board_write .cont input,
+.cmt_write input {
     display: block;
     width: 100%;
     padding: 15px;
@@ -247,19 +253,30 @@ a {
     border: 1px solid #000;
 }
 
-.board_write .info dt {
+.cmt_write textarea{
+    display: block;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 1px solid #000;
+    min-height: 4em;
+    overflow: hidden;
+    resize: none;
+}
+
+.board_write .info .item_tit {
     font-size: 1rem;
 }
 
-.board_write .title dl,
-.board_write .info dl,
-.board_write .cont dl {
+.board_write .title .group,
+.board_write .info .group,
+.board_write .cont .group {
     display: flex;
     padding: 15px 0;
     align-items: center;
 }
 
-.board_write .cont dl {
+.board_write .cont .group {
     align-items: flex-start;
 }
 
@@ -271,23 +288,23 @@ a {
     padding-top: 20px;
 }
 
-.board_write .info dl {
+.board_write .info .group {
     flex: 1;
 }
 
-.board_write .title dt,
-.board_write .info dt,
-.board_write .cont dt {
+.board_write .title .item_tit,
+.board_write .info .item_tit,
+.board_write .cont .item_tit {
     width: 100px;
 }
 
-.board_write dt{
+.board_write .item_tit{
     font-weight: 700;
 }
 
-.board_write .title dd,
-.board_write .cont dd,
-.board_write .info dd {
+.board_write .title .item_cont,
+.board_write .cont .item_cont,
+.board_write .info .item_cont {
     width: calc(100% - 100px);
 }
 
@@ -344,13 +361,13 @@ a {
 /* 글보기 페이지 */
 
 .board_view .info,
-.board_view dl,
-.board_view dt {
+.board_view .group,
+.board_view .item_tit {
     display: flex;
     align-items: center;
 }
 
-.board_view .info dl {
+.board_view .info .group {
     margin-right: 10px;
 }
 
@@ -358,9 +375,10 @@ a {
     font-size: .8rem;
     color: #666;
     flex-wrap: wrap;
+    padding-top: 8px;
 }
 
-.board_view .info dt::after {
+.board_view .info .item_tit::after {
     content: "|";
     font-size: .25rem;
     text-align: center;
@@ -385,14 +403,53 @@ a {
 .view_bt_wrap .left_wrap{
     display: flex;
     justify-content: flex-end;
+    padding: 20px 0;
+    gap: 10px
 }
 
-.view_bt_wrap a{
+.view_bt_wrap a, .cmt_write .btn a{
     padding: 12px 14px;
 }
 
 .cmt_wrap .tab{
     border-bottom: 1px solid #000;
+}
+
+.cmt_list .name, .cmt_write .cont, .cmt_write .name, .cmt_write .psword{
+    font-weight: 700;
+}
+
+.cmt_list>div{
+border-bottom: 1px solid #ccc;
+padding: 14px 0;
+}
+
+.cmt_write{
+    padding: 24px 0;
+}
+
+.cmt_write .info_g{
+    display: flex;
+    column-gap: 16px;
+}
+
+.cmt_write .group{
+    display: flex;
+    align-items: center;
+    flex: 48.5%;
+    margin-top: 14px;
+}
+
+.cmt_write .item_tit{
+    width: 100px;
+}
+
+.cmt_write .item_cont{
+    width: calc(100% - 100px);
+}
+
+.cmt_write .btn{
+    padding-top: 16px;
 }
 
 /* 반응형 */
@@ -431,13 +488,17 @@ a {
 
     /*글쓰기*/
 
-    .board_write .info dl {
+    .board_write .info .group {
         flex: 100%;
     }
     
     /*글보기*/
     .board_view .count{
         display: none;
+    }
+
+    .cmt_write .info_g{
+        flex-wrap: wrap;
     }
 
 
@@ -483,6 +544,10 @@ a {
     
     .board_view .cont{
         grid-area: cont;
+    }
+
+    .cmt_write .info_g .group{
+        flex: 100%;
     }
 
 }

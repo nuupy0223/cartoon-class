@@ -7,6 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript">
+
+        const textarea = useRef();
+        
+        const handleResizeHeight = () => {
+        textarea.current.style.height = 'auto'
+        textarea.current.style.hegith = textarea.current.scrollHeight + 'px';
+        }    
+        </script>
 </head>
 
 <body>
@@ -35,18 +44,18 @@
                         <span class="count">101</span>
                         <h2 class="tit">부천 외 지역의 초동학교에서도 시행되는지 궁금해요!</h2>
                         <div class="info">
-                            <dl>
-                                <dt>등록일</dt>
-                                <dd>2022.00.00</dd>
-                            </dl>
-                            <dl>
-                                <dt>작성자</dt>
-                                <dd>권나리</dd>
-                            </dl>
-                            <dl>
-                                <dt>조회수</dt>
-                                <dd>903</dd>
-                            </dl>
+                            <div class="group">
+                                <div class="item_tit">등록일</div>
+                                <div class="item_cont">2022.00.00</div>
+                            </div class="group">
+                            <div class="group">
+                                <div class="item_tit">작성자</div>
+                                <div class="item_cont">권나리</div>
+                            </div class="group">
+                            <div class="group">
+                                <div class="item_tit">조회수</div>
+                                <div class="item_cont">903</div>
+                            </div class="group">
                         </div>
                     </div>
                     <div class="cont">
@@ -87,18 +96,21 @@
 
                 </div>
                 <div class="cmt_write">
-                    <dl>
-                        <dd>댓글</dd>
-                        <dt><input type='text' placeholder="30자까지 입력 가능" maxlength='30'></dt>
-                    </dl>
-                    <dl>
-                        <dd>작성자</dd>
-                        <dt><input type="text" placeholder="8자까지 입력 가능" name="" id="" maxlength="8"></dt>
-                    </dl>
-                    <dl>
-                        <dd>비밀번호</dd>
-                        <dt><input type="password" placeholder="영문/숫자 혼합 10자 이상 입력"></dt>
-                    </dl>
+                    <div class="group">
+                        <div class="item_tit cont">댓글</div>
+                        <div class="item_cont"><textarea name="content" placeholder="300자까지 입력 가능" maxlength='300' rows="1"></textarea></div>
+                    </div>
+                    <div class="info_g">
+                        <div class="group">
+                            <div class="item_tit name">작성자</div>
+                            <div class="item_cont"><input type="text" placeholder="8자까지 입력 가능" name="" id="" maxlength="8"></div>
+                        </div>
+                        <div class="group">
+                            <div class="item_tit psword">비밀번호</div>
+                            <div class="item_cont"><input type="password" placeholder="영문/숫자 혼합 10자 이상 입력"></div>
+                        </div>
+                    </div>
+                    <div class="btn"><a href="#">등록</a></div>
                 </div>
             </div>
             <div class="board">
