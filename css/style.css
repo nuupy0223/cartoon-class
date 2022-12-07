@@ -69,6 +69,16 @@ button{
     padding: 0 10px;
 }
 
+.fild_off:focus {
+    outline: none;
+}
+
+.board_write .info .item_cont input.fild_off, input.fild_off {
+    background-color: #eee;
+    border-color: #eee;
+    color:#000;
+}
+
 .section {
     margin-top: 56px;
     margin-bottom: 148px;
@@ -248,7 +258,6 @@ button{
     height: 250px;
     padding: 15px;
     box-sizing: border-box;
-    border: 1px solid #000;
     resize: vertical;
 }
 
@@ -261,7 +270,16 @@ button{
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
-    border: 1px solid #000;
+}
+
+.cmt_write textarea,
+.board_write .cont textarea,
+.board_write .title input,
+.board_write .info input,
+.board_write .cont input,
+.cmt_write input,
+.modal input{
+border: 1px solid #000;
 }
 
 .cmt_write textarea{
@@ -269,7 +287,6 @@ button{
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
-    border: 1px solid #000;
     min-height: 4em;
     overflow: hidden;
     resize: none;
@@ -393,7 +410,7 @@ button{
     content: "|";
     font-size: .25rem;
     text-align: center;
-    margin: 3px;
+    margin: 3px; 
 }
 
 .board_view{
@@ -502,7 +519,6 @@ padding: 1.5rem 0;
     background-color: #fff;
     padding: 2rem;
     text-align: center;
-    border-radius: 10px;
     position: relative;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
@@ -520,6 +536,8 @@ padding: 1.5rem 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid #000;
+    padding-bottom: 1rem;
 }
 
 .modal_content .md_tit button{
@@ -555,6 +573,7 @@ padding: 1.5rem 0;
     font-weight: 700;
     background-color: #000;
     color: #fff;
+    max-width: 20rem;
 }
 
 /* 반응형 */
