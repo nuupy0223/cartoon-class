@@ -36,7 +36,8 @@ dd {
 h1,
 h2,
 p,
-span {
+span,
+button {
     font-size: inherit;
 }
 
@@ -69,11 +70,7 @@ button{
     padding: 0 10px;
 }
 
-.fild_off:focus {
-    outline: none;
-}
-
-.board_write .info .item_cont input.fild_off, input.fild_off {
+.item_cont>input.fild_off, .modal input.fild_off, .fild_off {
     background-color: #eee;
     border-color: #eee;
     color:#000;
@@ -265,20 +262,22 @@ button{
 .board_write .info input,
 .board_write .cont input,
 .cmt_write input,
-.modal input{
+.modal input,
+.group input{
     display: block;
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
 }
 
-.cmt_write textarea,
+/* .cmt_write textarea,
 .board_write .cont textarea,
 .board_write .title input,
 .board_write .info input,
 .board_write .cont input,
-.cmt_write input,
-.modal input{
+.cmt_write input, */
+.modal input,
+.group input{
 border: 1px solid #000;
 }
 
@@ -292,13 +291,15 @@ border: 1px solid #000;
     resize: none;
 }
 
-.board_write .info .item_tit {
+.board_write .info .item_tit,
+.board_rewrite_con .info .item_tit {
     font-size: 1rem;
 }
 
 .board_write .title .group,
 .board_write .info .group,
-.board_write .cont .group {
+.board_write .cont .group,
+.board_rewrite_con .info .group {
     display: flex;
     padding: 15px 0;
     align-items: center;
@@ -308,31 +309,36 @@ border: 1px solid #000;
     align-items: flex-start;
 }
 
-.board_write .info {
+.board_write .info,
+.board_rewrite_con .info {
     font-size: 0;
     display: flex;
     column-gap: 16px;
     flex-wrap: wrap;
-    padding-top: 20px;
+    padding: 10px 0;
 }
 
-.board_write .info .group {
+.board_write .info .group,
+.board_rewrite_con .info .group {
     flex: 1;
 }
 
 .board_write .title .item_tit,
 .board_write .info .item_tit,
-.board_write .cont .item_tit {
+.board_write .cont .item_tit,
+.board_rewrite_con .info .item_tit {
     width: 100px;
 }
 
-.board_write .item_tit{
+.board_write .item_tit,
+.board_rewrite_con .item_tit{
     font-weight: 700;
 }
 
 .board_write .title .item_cont,
 .board_write .cont .item_cont,
-.board_write .info .item_cont {
+.board_write .info .item_cont,
+.board_rewrite_con .info .item_cont {
     width: calc(100% - 100px);
 }
 
@@ -413,12 +419,12 @@ border: 1px solid #000;
     margin: 3px; 
 }
 
-.board_view{
+.board_view, .board_rewrite_con{
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
 }
 
-.board_view .title{
+.board_view .title, .board_rewrite_con .title{
     border-bottom: 1px solid #ddd;
     padding-top: 20px;
     padding-bottom: 10px;
@@ -576,6 +582,19 @@ padding: 1.5rem 0;
     max-width: 20rem;
 }
 
+.modal button.confirm{
+    width: 100%;
+}
+
+.fild_off:focus {
+    outline: none;
+}
+
+/*글 수정 확인 페이지*/
+.board_rewrite_con .title .group{
+    height: 5rem;
+}
+
 /* 반응형 */
 @media (max-width: 1000px) {
 
@@ -612,7 +631,8 @@ padding: 1.5rem 0;
 
     /*글쓰기*/
 
-    .board_write .info .group {
+    .board_write .info .group,
+    .board_rewrite_con .info .group {
         flex: 100%;
     }
     
