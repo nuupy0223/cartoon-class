@@ -81,21 +81,8 @@ button{
     margin-bottom: 148px;
 }
 
-.gnb_bar ul,
 .col {
     display: flex;
-}
-
-.gnb_bar>.area {
-    justify-content: space-between;
-}
-
-.gnb_bar {
-    border-bottom: 1px solid #555;
-}
-
-.gnb_bar li {
-    padding: 20px 14px;
 }
 
 .tab ul {
@@ -259,25 +246,23 @@ button{
 }
 
 .board_write .title input,
-.board_write .info input,
+.info input,
 .board_write .cont input,
 .cmt_write input,
-.modal input,
-.group input{
+.modal input{
     display: block;
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
 }
 
-/* .cmt_write textarea,
+.cmt_write textarea,
 .board_write .cont textarea,
 .board_write .title input,
-.board_write .info input,
+.info input,
 .board_write .cont input,
-.cmt_write input, */
-.modal input,
-.group input{
+.cmt_write input,
+.modal input{
 border: 1px solid #000;
 }
 
@@ -286,18 +271,16 @@ border: 1px solid #000;
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
-    min-height: 4em;
     overflow: hidden;
     resize: none;
 }
 
-.board_write .info .item_tit,
-.board_rewrite_con .info .item_tit {
+.info .item_tit {
     font-size: 1rem;
 }
 
 .board_write .title .group,
-.board_write .info .group,
+.info .group,
 .board_write .cont .group,
 .board_rewrite_con .info .group {
     display: flex;

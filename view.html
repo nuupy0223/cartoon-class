@@ -7,21 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gnb.css">
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
     <div class="wrap">
         <nav class="gnb_bar">
             <div class="area col">
-                <h1 class="logo"></h1>
-                <ul>
-                    <li>사업소개</li>
-                    <li>참여학교</li>
-                    <li>강사소개</li>
-                    <li>시민공감만화교실</li>
-                    <li>전국생학생만화공모전</li>
-                    <li>커뮤니티</li>
-                </ul>
+                <h1 class="logo">초등학교 6학년 만화교실</h1>
+                <div class="menu_list_wrap">
+                    <button class="gnbbar_menu_toggleBtn">
+                        <svg enable-background="new 0 0 32 32" id="Editable-line" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><line fill="none" id="XMLID_103_" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" x1="7" x2="25" y1="16" y2="16"/><line fill="none" id="XMLID_102_" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" x1="7" x2="25" y1="25" y2="25"/><line fill="none" id="XMLID_101_" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" x1="7" x2="25" y1="7" y2="7"/></svg>
+                    </button>
+                    <ul class="menu_list">
+                        <li><a>사업소개</a></li>
+                        <li><a>참여학교</a></li>
+                        <li><a>강사소개</a></li>
+                        <li><a>시민공감만화교실</a></li>
+                        <li><a>전국생학생만화공모전</a></li>
+                        <li><a>커뮤니티</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
         <div class="area section">
@@ -165,28 +172,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        const openButton = document.querySelector(".open");
-        const modal = document.querySelector(".modal");
-        const closeBtn = modal.querySelector("button");
-        const openModal = () => {
-            modal.classList.remove("hidden");
-        }
-        const closeModal = () => {
-            modal.classList.add("hidden");
-        }
-        closeBtn.addEventListener("click", closeModal);
-        openButton.addEventListener("click", openModal);
-    </script>
-    <!--react용 텍스트에리어 자동 높이 설정 
-    <script type="text/javascript">
-            const textarea = useRef();
-            const handleResizeHeight = () => {
-            textarea.current.style.height = 'auto'
-            textarea.current.style.hegith = textarea.current.scrollHeight + 'px';
-            }    
-    </script> -->
 
 </body>
 
